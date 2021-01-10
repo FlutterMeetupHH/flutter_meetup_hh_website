@@ -23,3 +23,5 @@ ThemeData.from(
 - Not all layout decisions can respond fully responsive (for example by using the Wrap widget). For this instances we have to set breakpoints (a wrapper widget checking this) and layout a different widget tree which satisfies the given screen size
 
 - Odyssee to getting GDrive files
+
+- CORS!!!! -> https://cors-anywhere.herokuapp.com/
