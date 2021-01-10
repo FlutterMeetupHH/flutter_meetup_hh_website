@@ -14,7 +14,7 @@ class Stuff {
       final anchor = AnchorElement(
           href:
               "data:application/octet-stream;charset=utf-16le;base64,$content")
-        ..setAttribute("download", "file.txt")
+        ..setAttribute("download", "file.pdf")
         ..click();
     }, onError: (error) {
       print("Some Error");
