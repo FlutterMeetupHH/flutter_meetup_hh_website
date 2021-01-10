@@ -25,3 +25,7 @@ ThemeData.from(
 - Odyssee to getting GDrive files
 
 - CORS!!!! -> https://cors-anywhere.herokuapp.com/
+
+- SelectableText -> Otherwise its not possible to select and copy text from the website
+
+- Mouse Pointer -> Gotta think about it, e.g. GestureDetector doesnt have it "out-of-the-box"
