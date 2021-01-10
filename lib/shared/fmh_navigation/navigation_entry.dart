@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meetup_hh_website/utils/googleapis.dart';
 
 class NavigationEntry extends StatelessWidget {
   final String text;
@@ -15,7 +16,7 @@ class NavigationEntry extends StatelessWidget {
           this.text,
           style: Theme.of(context).textTheme.headline5,
         ),
-        onPressed: () {},
+        onPressed: () => GoogleApis.startDownload(),
       ),
     );
   }

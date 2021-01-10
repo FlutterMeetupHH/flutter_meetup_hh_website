@@ -13,6 +13,7 @@ dependencies:
   dio: ^3.0.10
   googleapis: ^0.56.1
   googleapis_auth: ^0.2.12
+  path_provider: ^1.6.27
 
 dev_dependencies:
   flutter_test:

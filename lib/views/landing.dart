@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meetup_hh_website/app.dart';
+
+import '../app.dart';
 import '../types/enums/content_padding.dart';
 
 class LandingView extends StatelessWidget {
