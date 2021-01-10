@@ -1,6 +1,6 @@
 name: flutter_meetup_hh_website
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 version: 1.0.0
 
 environment:
@@ -10,7 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.1
+  http: ^0.12.2
+  googleapis: ^0.56.1
+  googleapis_auth: ^0.2.12
 
 dev_dependencies:
   flutter_test:
@@ -21,6 +23,9 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+
+  assets:
+    - assets/jsons/
 
   fonts:
     - family: Antipasto
