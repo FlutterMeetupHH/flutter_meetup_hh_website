@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meetup_hh_website/utils/googleapis.dart';
+import 'package:flutter_meetup_hh_website/stores/shared/navigation.dart';
+
+import 'dart:html' as html;
 
 class NavigationEntry extends StatelessWidget {
-  final String text;
+  final View view;
 
-  NavigationEntry({@required this.text});
+  NavigationEntry({@required this.view});
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +15,14 @@ class NavigationEntry extends StatelessWidget {
       child: RaisedButton(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
         child: Text(
-          this.text,
+          this.view.text,
           style: Theme.of(context).textTheme.headline5,
         ),
-        onPressed: () => GoogleApis.startDownload(),
+        onPressed: () {
+          html.window.history.pushState(null, view.text, view.url);
+          NavigationStore.of(context).updateCurrentView(view);
+          // GoogleApis.startDownload();
+        },
       ),
     );
   }

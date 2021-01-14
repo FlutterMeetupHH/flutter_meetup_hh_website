@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_meetup_hh_website/utils/googleapis.dart';
+import 'package:url_strategy/url_strategy.dart';
+
 import 'app.dart';
+import 'stores/shared/navigation.dart';
 import 'theme.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(FMHApp());
 }
 
@@ -19,10 +22,16 @@ class FMHApp extends StatelessWidget {
     //   print(value.first.toString());
     // });
 
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: FMHTheme.themeData,
-      home: App(),
+    return NavigationStore(
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: FMHTheme.themeData,
+        routes: {}..addEntries(
+            View.values.map(
+              (view) => MapEntry(view.url, (_) => App()),
+            ),
+          ),
+      ),
     );
   }
 }

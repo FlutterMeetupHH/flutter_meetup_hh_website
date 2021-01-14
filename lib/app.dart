@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_meetup_hh_website/stores/shared/navigation.dart';
+import 'package:flutter_meetup_hh_website/utils/helper.dart';
 
 import 'shared/fmh_constrained_container/fmh_constrained_container.dart';
 import 'shared/fmh_content_card/fmh_content_card.dart';
@@ -9,7 +11,8 @@ import 'shared/fmh_meetup_title/fmh_meetup_title.dart';
 import 'shared/fmh_navigation/fmh_navigation.dart';
 import 'shared/fmh_responsive_wrapper/fmh_responsive_wrapper.dart';
 import 'types/enums/content_padding.dart';
-import 'views/landing.dart';
+
+import 'dart:html' as html;
 
 const kContentPadding = ContentPadding.normal;
 
@@ -20,8 +23,17 @@ class App extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: kContentPadding.value),
       child: SizedBox(
         height: min(MediaQuery.of(context).size.height, 700.0),
-        child: FMHContentCard(
-          child: LandingView(),
+        child: ValueListenableBuilder<View>(
+          valueListenable: NavigationStore.of(context).currentView,
+          builder: (context, view, _) {
+            if (html.window.location.pathname != view.url) {
+              NavigationStore.of(context).updateCurrentView(
+                  Helper.fromURL(html.window.location.pathname));
+            }
+            return FMHContentCard(
+              child: view.widget,
+            );
+          },
         ),
       ),
     );
@@ -56,9 +68,10 @@ class App extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 24.0),
-                                        child: FMHMeetupTitle()),
+                                      padding:
+                                          const EdgeInsets.only(bottom: 24.0),
+                                      child: FMHMeetupTitle(),
+                                    ),
                                     FMHNavigation(),
                                   ],
                                 ),

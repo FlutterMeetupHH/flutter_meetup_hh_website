@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meetup_hh_website/utils/googleapis.dart';
+import 'package:flutter_meetup_hh_website/stores/shared/navigation.dart';
 
 import 'navigation_entry.dart';
 
@@ -8,13 +8,13 @@ class FMHNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GestureDetector(
-            onTap: () => GoogleApis.startDownload(),
-            child: NavigationEntry(text: 'Home')),
+        NavigationEntry(view: View.landing),
         SizedBox(height: 12.0),
-        NavigationEntry(text: 'Meetups'),
+        NavigationEntry(view: View.events),
         SizedBox(height: 12.0),
-        NavigationEntry(text: 'About'),
+        NavigationEntry(view: View.files),
+        SizedBox(height: 12.0),
+        NavigationEntry(view: View.about),
       ],
     );
   }
