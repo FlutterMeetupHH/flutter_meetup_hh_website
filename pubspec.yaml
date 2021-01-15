@@ -15,6 +15,7 @@ dependencies:
   googleapis_auth: ^0.2.12
   path_provider: ^1.6.27
   url_strategy: ^0.1.1
+  flutter_markdown: ^0.5.2
 
 dev_dependencies:
   flutter_test:
@@ -35,3 +36,7 @@ flutter:
           style: normal
         - asset: assets/fonts/Antipasto/AntipastoPro-Extralight_trial.ttf
           weight: 300
+    - family: FiraSans
+      fonts:
+        - asset: assets/fonts/Fira_Sans/FiraSans-Regular.ttf
+          style: normal

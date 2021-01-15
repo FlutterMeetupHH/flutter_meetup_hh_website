@@ -1,18 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_meetup_hh_website/utils/meetupapi.dart';
 
 import '../../shared/fmh_view_base/fmh_view_base.dart';
-import '../../utils/googleapis.dart';
 
-class FilesView extends StatefulWidget {
+class EventsView extends StatefulWidget {
   @override
-  _FilesViewState createState() => _FilesViewState();
+  _EventsViewState createState() => _EventsViewState();
 }
 
-class _FilesViewState extends State<FilesView> {
+class _EventsViewState extends State<EventsView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<dynamic>>(
-      future: GoogleApis.getGDriveFiles(),
+      future: MeetupApi.getAllEvents(),
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: Text('Please wait its loading...'));
@@ -20,15 +23,9 @@ class _FilesViewState extends State<FilesView> {
           if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            final List<dynamic> allFiles = snapshot.data;
+            final List<dynamic> allEvents = snapshot.data;
             return FMHViewBase(
-              children: allFiles.map((file) {
-                print(file);
-                return ListTile(
-                  leading: Icon(Icons.file_copy),
-                  title: Text(file.name),
-                );
-              }).toList(),
+              children: allEvents.map((event) => Text(event['name'])).toList(),
             );
           }
         }

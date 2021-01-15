@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const String kFontFamilyAntipasto = 'Antipasto';
+const String kFontFamilyFiraSans = 'FiraSans';
 
 class FMHTheme {
   final ThemeData lightTheme = ThemeData.light();
@@ -28,7 +29,7 @@ class FMHTheme {
     ThemeData themeData = ThemeData.from(
       colorScheme: colorScheme,
       textTheme:
-          ThemeData.dark().textTheme.apply(fontFamily: kFontFamilyAntipasto),
+          ThemeData.dark().textTheme.apply(fontFamily: kFontFamilyFiraSans),
     ).copyWith(
       cardTheme: CardTheme(
         color: accentColor.withOpacity(0.1),

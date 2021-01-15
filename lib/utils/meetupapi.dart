@@ -1,10 +1,11 @@
-import 'package:dio/dio.dart';
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 
 class MeetupApi {
   static Future<List<dynamic>> getAllEvents() async {
-    final String url =
-        'https://cors-anywhere.herokuapp.com/https://api.meetup.com/Hamburg-Flutter-and-Beyond/events?status=past,upcoming&desc=true';
-    final Response response = await Dio().get(url);
-    return response.data;
+    return json.decode(
+            await rootBundle.loadString('assets/jsons/meetup_events.json'))
+        as List<dynamic>;
   }
 }

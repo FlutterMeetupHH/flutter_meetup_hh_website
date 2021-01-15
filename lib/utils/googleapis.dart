@@ -53,8 +53,8 @@ class GoogleApis {
 
     print(idOfFirst);
 
-    Media file = await drive.files.export(idOfFirst, 'application/pdf',
-        downloadOptions: DownloadOptions.FullMedia);
+    final Media file = await drive.files.export(idOfFirst, 'application/pdf',
+        downloadOptions: DownloadOptions.FullMedia) as Media;
     // Media file = await drive.files.export(idOfFirst, 'text/plain',
     //     downloadOptions: DownloadOptions.FullMedia);
 

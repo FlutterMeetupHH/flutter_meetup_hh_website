@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meetup_hh_website/views/events/events.dart';
 
 import '../../views/files/files.dart';
 import '../../views/landing/landing.dart';
@@ -29,7 +30,7 @@ extension ViewFunctions on View {
 
   Widget get widget => {
         View.landing: LandingView(),
-        View.events: LandingView(),
+        View.events: EventsView(),
         View.files: FilesView(),
         View.about: LandingView(),
       }[this];

@@ -1,8 +1,7 @@
+import 'dart:html' as html;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_meetup_hh_website/stores/shared/navigation.dart';
-import 'package:flutter_meetup_hh_website/utils/helper.dart';
 
 import 'shared/fmh_constrained_container/fmh_constrained_container.dart';
 import 'shared/fmh_content_card/fmh_content_card.dart';
@@ -10,9 +9,9 @@ import 'shared/fmh_drawer/fmh_drawer.dart';
 import 'shared/fmh_meetup_title/fmh_meetup_title.dart';
 import 'shared/fmh_navigation/fmh_navigation.dart';
 import 'shared/fmh_responsive_wrapper/fmh_responsive_wrapper.dart';
+import 'stores/shared/navigation.dart';
 import 'types/enums/content_padding.dart';
-
-import 'dart:html' as html;
+import 'utils/helper.dart';
 
 const kContentPadding = ContentPadding.normal;
 
@@ -46,7 +45,7 @@ class App extends StatelessWidget {
           drawerEnableOpenDragGesture: false,
           appBar: display == Display.mobile
               ? AppBar(
-                  title: Text('Flutter and Beyond'),
+                  title: Text('Flutter Hamburg and Beyond'),
                 )
               : null,
           drawer: display == Display.mobile ? FMHDrawer() : null,
@@ -77,7 +76,6 @@ class App extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: 12.0),
-                              VerticalDivider(),
                             ],
                           ),
                         ),
