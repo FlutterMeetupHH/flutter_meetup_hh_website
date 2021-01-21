@@ -1,0 +1,107 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  DNS:
+    Type: String
+    Default: flutterandbeyond.com
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+  AcmCertificateArn:
+    Type: String
+
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: s3:GetObject
+            Resource: !Sub arn:aws:s3:::${Bucket}/*
+
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+          - Id: S3Origin
+            DomainName: !Sub ${Bucket}.s3-website.${AWS::Region}.amazonaws.com
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: http-only
+        Enabled: true
+        HttpVersion: http2
+        Aliases:
+          - !Ref DNS
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          Compress: true
+          TargetOriginId: S3Origin
+          ForwardedValues:
+            QueryString: true
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        PriceClass: PriceClass_All
+        ViewerCertificate:
+          AcmCertificateArn: !Ref AcmCertificateArn
+          SslSupportMethod: sni-only
+
+  WebsiteRecordSet:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !Ref DNS
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2 # AWS default value to use with "CloudFrontDistribution.DomainName"
+            DNSName: !GetAtt CloudFrontDistribution.DomainName
+
+  GitHubActionsUser:
+    Type: AWS::IAM::User
+    Properties:
+      Policies:
+        - PolicyName: GitHubActionsUserPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:*
+                Resource:
+                  - !Sub arn:aws:s3:::${Bucket}
+                  - !Sub arn:aws:s3:::${Bucket}/*
+
+  GitHubActionsUserAccessKey:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      Status: Active
+      UserName: !Ref GitHubActionsUser
+
+Outputs:
+  Bucket:
+    Value: !Ref Bucket
+  AccessKey:
+    Value: !Ref GitHubActionsUserAccessKey
+  SecretAccessKey:
+    Value: !GetAtt GitHubActionsUserAccessKey.SecretAccessKey
