@@ -31,3 +31,5 @@ ThemeData.from(
 - Mouse Pointer -> Gotta think about it, e.g. GestureDetector doesnt have it "out-of-the-box"
 
 - Disable drawer open gesture because on phones (e.g. iOS) it also triggers the back-swipe -> However closing swipe gesture is nice tho
+
+- Cool thing: The app is out-of-th-box a Chrome app / PWA which means it can be installed instantly from the browser
