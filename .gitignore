@@ -46,3 +46,7 @@ app.*.map.json
 /android/app/release
 
 assets/jsons/gcloud_service_account.json
+
+# Exclude user specific fvm settings/folders
+.fvm
+.vscode/settings.json
