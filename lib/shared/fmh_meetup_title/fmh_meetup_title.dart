@@ -7,7 +7,7 @@ class FMHMeetupTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SelectableText(
-          'Flutter and Beyond',
+          'Flutter Hamburg',
           style: Theme.of(context).textTheme.headline4.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w300,
@@ -16,7 +16,7 @@ class FMHMeetupTitle extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 64.0),
           child: SelectableText(
-            'Meetup Hamburg',
+            'and Beyond',
             style: Theme.of(context)
                 .textTheme
                 .headline4

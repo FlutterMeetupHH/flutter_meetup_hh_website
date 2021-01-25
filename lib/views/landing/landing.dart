@@ -34,12 +34,13 @@ class LandingView extends StatelessWidget {
     return FMHViewBase(
       children: [
         SizedBox(
-            height: 800,
-            child: Markdown(
-              data: _notes,
-              selectable: true,
-              styleSheet: MarkdownStyleSheet(textScaleFactor: 1.5),
-            )),
+          height: 800,
+          child: Markdown(
+            data: _notes,
+            selectable: true,
+            styleSheet: MarkdownStyleSheet(textScaleFactor: 1.5),
+          ),
+        ),
       ],
     );
   }

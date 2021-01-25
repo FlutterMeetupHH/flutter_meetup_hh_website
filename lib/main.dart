@@ -18,13 +18,9 @@ class FMHApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
 
-    // GoogleApis.getGDriveFiles().then((value) {
-    //   print(value.first.toString());
-    // });
-
     return NavigationStore(
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Flutter Hamburg and Beyond',
         theme: FMHTheme.themeData,
         routes: {}..addEntries(
             View.values.map(

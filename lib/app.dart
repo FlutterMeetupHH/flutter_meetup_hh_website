@@ -18,7 +18,7 @@ const kContentPadding = ContentPadding.normal;
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget view = Padding(
+    final Widget view = Padding(
       padding: EdgeInsets.symmetric(horizontal: kContentPadding.value),
       child: SizedBox(
         height: min(MediaQuery.of(context).size.height, 700.0),
