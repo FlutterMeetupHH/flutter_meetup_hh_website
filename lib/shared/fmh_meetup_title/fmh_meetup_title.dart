@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meetup_hh_website/theme.dart';
 
 class FMHMeetupTitle extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class FMHMeetupTitle extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline4
-                .copyWith(color: Colors.white),
+                .apply(fontFamily: kFontFamilyAntipasto),
           ),
         ),
       ],

@@ -32,11 +32,11 @@ flutter:
   fonts:
     - family: Antipasto
       fonts:
-        - asset: assets/fonts/Antipasto/AntipastoPro_trial.ttf
+        - asset: fonts/Antipasto/AntipastoPro_trial.ttf
           style: normal
-        - asset: assets/fonts/Antipasto/AntipastoPro-Extralight_trial.ttf
+        - asset: fonts/Antipasto/AntipastoPro-Extralight_trial.ttf
           weight: 300
     - family: FiraSans
       fonts:
-        - asset: assets/fonts/Fira_Sans/FiraSans-Regular.ttf
+        - asset: fonts/Fira_Sans/FiraSans-Regular.ttf
           style: normal

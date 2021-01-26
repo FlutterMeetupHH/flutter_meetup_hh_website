@@ -1,0 +1,18 @@
+[
+  {
+    "family": "FiraSans",
+    "fonts": [
+      {
+        "asset": "fonts/Fira_Sans/FiraSans-Regular.ttf"
+      }
+    ]
+  },
+  {
+    "family": "Antipasto",
+    "fonts": [
+      {
+        "asset": "fonts/Antipasto/AntipastoPro_trial.ttf"
+      }
+    ]
+  }
+]
