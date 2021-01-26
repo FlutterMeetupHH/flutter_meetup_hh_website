@@ -11,7 +11,7 @@ class FMHConstraintedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      padding: const EdgeInsets.all(24.0),
       child: Align(
         child: ConstrainedBox(
           constraints: BoxConstraints(
