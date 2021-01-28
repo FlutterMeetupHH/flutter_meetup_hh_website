@@ -11,6 +11,7 @@ class Helper {
         '/events': View.events,
         '/files': View.files,
         '/about': View.about,
+        '/contributors': View.contributors,
       }[url];
 
   static void saveToFile(v3.Media media, String fileName) {
