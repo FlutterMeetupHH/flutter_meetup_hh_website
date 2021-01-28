@@ -3,9 +3,6 @@
     "family": "Montserrat",
     "fonts": [
       {
-        "asset": "fonts/Montserrat/Montserrat-Bold.ttf"
-      },
-      {
         "asset": "fonts/Montserrat/Montserrat-Regular.ttf"
       }
     ]
