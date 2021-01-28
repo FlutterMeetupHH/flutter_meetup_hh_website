@@ -18,11 +18,13 @@ const kContentPadding = ContentPadding.none;
 class App extends StatelessWidget {
   Widget _leading(BuildContext context) {
     return Builder(
-      builder: (context) => IconButton(
-        onPressed: () => Scaffold.of(context).openDrawer(),
-        icon: Icon(
-          Icons.menu_open_rounded,
-          size: 32.0,
+      builder: (context) => GestureDetector(
+        onTap: () => Scaffold.of(context).openDrawer(),
+        child: Center(
+          child: Image.asset(
+            'images/menu.png',
+            height: 52.0,
+          ),
         ),
       ),
     );

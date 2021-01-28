@@ -34,11 +34,6 @@ class LandingView extends StatelessWidget {
           data: _content,
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          onTapLink: (param1, param2, param3) {
-            print(param1);
-            print(param2);
-            print(param3);
-          },
           styleSheet: MarkdownStyleSheet(
             textScaleFactor: 1.2,
             blockSpacing: 18.0,
