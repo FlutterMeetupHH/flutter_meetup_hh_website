@@ -1,3 +1,5 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 
 import '../../shared/fmh_view_base/fmh_view_base.dart';
@@ -22,7 +24,16 @@ class _EventsViewState extends State<EventsView> {
           } else {
             final List<dynamic> allEvents = snapshot.data;
             return FMHViewBase(
-              children: allEvents.map((event) => Text(event['name'])).toList(),
+              children: allEvents.map((event) {
+                return ListTile(
+                  leading: Image.asset(
+                    'images/meetup_icon.png',
+                    height: 24.0,
+                  ),
+                  title: Text(event['name']),
+                  onTap: () => js.context.callMethod('open', [event['link']]),
+                );
+              }).toList(),
             );
           }
         }

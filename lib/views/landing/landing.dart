@@ -5,7 +5,7 @@ import '../../shared/fmh_view_base/fmh_view_base.dart';
 
 // ignore: prefer_single_quotes
 const String _content = """
-![Test](../../../assets/images/header.jpg)
+![Header](../../../assets/images/header.jpg)
 
 ## This is the official homepage for all things meetup!
 

@@ -16,6 +16,10 @@ The open-source repo for this website/webapp:
 If you find any bugs (surely there are none, right? RIGHT?! xD), please feel free to submit them in the repo. We are grateful for any hints and support!
 
 [https://github.com/FlutterMeetupHH/flutter_meetup_hh_website/issues](https://github.com/FlutterMeetupHH/flutter_meetup_hh_website/issues)
+
+..and now, the promised cat gif(s):
+
+![Cats](../../../assets/images/cats.gif)
 """;
 
 class AboutView extends StatelessWidget {
