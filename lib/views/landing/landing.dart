@@ -5,8 +5,6 @@ import '../../shared/fmh_view_base/fmh_view_base.dart';
 
 // ignore: prefer_single_quotes
 const String _content = """
-`. / welcome_traveler.dart`
-
 ![Test](../../../assets/images/header.jpg)
 
 ## This is the official homepage for all things meetup!
@@ -36,8 +34,15 @@ class LandingView extends StatelessWidget {
           data: _content,
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          styleSheet:
-              MarkdownStyleSheet(textScaleFactor: 1.2, blockSpacing: 18.0),
+          onTapLink: (param1, param2, param3) {
+            print(param1);
+            print(param2);
+            print(param3);
+          },
+          styleSheet: MarkdownStyleSheet(
+            textScaleFactor: 1.2,
+            blockSpacing: 18.0,
+          ),
         ),
       ],
     );

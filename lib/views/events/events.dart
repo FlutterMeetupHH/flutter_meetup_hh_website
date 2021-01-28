@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_meetup_hh_website/utils/meetupapi.dart';
 
 import '../../shared/fmh_view_base/fmh_view_base.dart';
+import '../../utils/meetupapi.dart';
 
 class EventsView extends StatefulWidget {
   @override

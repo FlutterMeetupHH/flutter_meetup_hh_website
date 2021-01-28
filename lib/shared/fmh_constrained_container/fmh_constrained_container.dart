@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kResponsiveWrapperWidth = 1024.0;
+const kResponsiveWrapperWidth = 1280.0;
 
 class FMHConstraintedContainer extends StatelessWidget {
   final Widget child;

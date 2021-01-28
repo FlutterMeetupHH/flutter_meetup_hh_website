@@ -13,15 +13,27 @@ import 'stores/shared/navigation.dart';
 import 'types/enums/content_padding.dart';
 import 'utils/helper.dart';
 
-const kContentPadding = ContentPadding.normal;
+const kContentPadding = ContentPadding.none;
 
 class App extends StatelessWidget {
+  Widget _leading(BuildContext context) {
+    return Builder(
+      builder: (context) => IconButton(
+        onPressed: () => Scaffold.of(context).openDrawer(),
+        icon: Icon(
+          Icons.menu_open_rounded,
+          size: 32.0,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final Widget view = Padding(
       padding: EdgeInsets.symmetric(horizontal: kContentPadding.value),
       child: SizedBox(
-        height: min(MediaQuery.of(context).size.height, 700.0),
+        height: min(MediaQuery.of(context).size.height, 1024.0),
         child: ValueListenableBuilder<View>(
           valueListenable: NavigationStore.of(context).currentView,
           builder: (context, view, _) {
@@ -37,6 +49,8 @@ class App extends StatelessWidget {
       ),
     );
 
+    final TextStyle headline = Theme.of(context).textTheme.headline3;
+
     return FMHResponsiveWrapper(
       responsiveBuilder: (display) => MediaQuery.removePadding(
         context: context,
@@ -45,7 +59,56 @@ class App extends StatelessWidget {
           drawerEnableOpenDragGesture: false,
           appBar: display == Display.mobile
               ? AppBar(
-                  title: Text('Flutter Hamburg and Beyond'),
+                  toolbarHeight: 72.0,
+                  leading: _leading(context),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Flutter',
+                              style: headline.copyWith(
+                                  fontSize: headline.fontSize * 0.3),
+                            ),
+                            Text(
+                              'Hamburg',
+                              style: headline.copyWith(
+                                  fontSize: headline.fontSize * 0.3),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 18.0),
+                      Image.asset(
+                        'images/logo_rounded.png',
+                        height: 52.0,
+                      ),
+                      SizedBox(width: 18.0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'and',
+                              style: headline.copyWith(
+                                  fontSize: headline.fontSize * 0.3),
+                            ),
+                            Text(
+                              'Beyond',
+                              style: headline.copyWith(
+                                  fontSize: headline.fontSize * 0.3),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  actions: [
+                    SizedBox(width: 64.0),
+                  ],
                 )
               : null,
           drawer: display == Display.mobile ? FMHDrawer() : null,
@@ -53,12 +116,12 @@ class App extends StatelessWidget {
             child: display == Display.mobile
                 ? view
                 : Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 350.0,
+                        width: 550.0,
                         child: Transform.translate(
-                          offset: Offset(0, -120.0),
+                          offset: Offset(0, 0),
                           child: Row(
                             children: [
                               Expanded(
@@ -66,16 +129,17 @@ class App extends StatelessWidget {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
+                                    SizedBox(height: 48.0),
                                     Padding(
                                       padding:
-                                          const EdgeInsets.only(bottom: 24.0),
+                                          const EdgeInsets.only(bottom: 48.0),
                                       child: FMHMeetupTitle(),
                                     ),
                                     FMHNavigation(),
                                   ],
                                 ),
                               ),
-                              SizedBox(width: 12.0),
+                              SizedBox(width: 48.0),
                             ],
                           ),
                         ),

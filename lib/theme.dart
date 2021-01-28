@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-const String kFontFamilyAntipasto = 'Antipasto';
-const String kFontFamilyFiraSans = 'FiraSans';
+const String kFontFamilyMontserrat = 'Montserrat';
 
 class FMHTheme {
   final ThemeData lightTheme = ThemeData.light();
 
-  static final Color primaryColor = Color.fromRGBO(0, 144, 234, 1);
-  static final Color accentColor = Color.fromRGBO(0, 87, 139, 1);
+  static final Color primaryColor = Color.fromRGBO(24, 15, 67, 1);
+  static final Color accentColor = Color.fromRGBO(24, 15, 67, 1);
+  static final Color secondaryColor = Color.fromRGBO(104, 114, 202, 1);
 
   static ThemeData get themeData {
-    ColorScheme colorScheme = ColorScheme(
+    final ColorScheme colorScheme = ColorScheme(
       brightness: Brightness.dark,
       primary: primaryColor,
       primaryVariant: primaryColor,
@@ -26,13 +26,13 @@ class FMHTheme {
       onSurface: Colors.white,
     );
 
-    ThemeData themeData = ThemeData.from(
+    final ThemeData themeData = ThemeData.from(
       colorScheme: colorScheme,
       textTheme:
-          ThemeData.dark().textTheme.apply(fontFamily: kFontFamilyFiraSans),
+          ThemeData.dark().textTheme.apply(fontFamily: kFontFamilyMontserrat),
     ).copyWith(
       cardTheme: CardTheme(
-        color: accentColor.withOpacity(0.1),
+        color: secondaryColor.withOpacity(0.4),
       ),
       buttonTheme: ButtonThemeData(
         splashColor: Colors.transparent,

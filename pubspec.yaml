@@ -30,13 +30,7 @@ flutter:
     - assets/jsons/
 
   fonts:
-    - family: Antipasto
+    - family: Montserrat
       fonts:
-        - asset: fonts/Antipasto/AntipastoPro_trial.ttf
-          style: normal
-        - asset: fonts/Antipasto/AntipastoPro-Extralight_trial.ttf
-          weight: 300
-    - family: FiraSans
-      fonts:
-        - asset: fonts/Fira_Sans/FiraSans-Regular.ttf
-          style: normal
+        - asset: fonts/Montserrat/Montserrat-Bold.ttf
+        - asset: fonts/Montserrat/Montserrat-Regular.ttf

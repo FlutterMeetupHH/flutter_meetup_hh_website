@@ -8,8 +8,10 @@ class FMHDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          FMHMeetupTitle(),
-          Divider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 48.0),
+            child: FMHMeetupTitle(),
+          ),
           FMHNavigation(),
         ],
       ),

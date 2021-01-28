@@ -1,17 +1,12 @@
 [
   {
-    "family": "FiraSans",
+    "family": "Montserrat",
     "fonts": [
       {
-        "asset": "fonts/Fira_Sans/FiraSans-Regular.ttf"
-      }
-    ]
-  },
-  {
-    "family": "Antipasto",
-    "fonts": [
+        "asset": "fonts/Montserrat/Montserrat-Bold.ttf"
+      },
       {
-        "asset": "fonts/Antipasto/AntipastoPro_trial.ttf"
+        "asset": "fonts/Montserrat/Montserrat-Regular.ttf"
       }
     ]
   }

@@ -12,7 +12,7 @@ class FMHViewBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: this.children.length,
-      padding: EdgeInsets.only(top: kContentPadding.value),
+      padding: EdgeInsets.only(top: ContentPadding.normal.value),
       itemBuilder: (context, index) => this.children[index],
     );
   }
