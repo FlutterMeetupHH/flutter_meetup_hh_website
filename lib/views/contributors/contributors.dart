@@ -32,10 +32,9 @@ Future<List<Contributor>> fetchContributors() async {
   final response = await http.get(
       'https://api.github.com/repos/FlutterMeetupHH/flutter_meetup_hh_website/contributors');
   if (response.statusCode == 200) {
-    // return Contributor.fromJson(jsonDecode(response.body));
     return compute(parseContributors, response.body);
   } else {
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load contributors');
   }
 }
 
