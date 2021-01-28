@@ -1,3 +1,13 @@
+## Agenda
+
+- New Design
+- Approach
+- Features
+- Setup
+- Live Demo
+- Learnings
+- Pains
+
 ## Setup
 
 ```
@@ -35,3 +45,8 @@ ThemeData.from(
 - Cool thing: The app is out-of-the-box a Chrome app / PWA which means it can be installed instantly from the browser -> Short showcase
 
 - Frequent issues with debugging/usage of breakpoints in general (mostly changing them while the application is running)
+
+- FontManifest
+  - Providing the fonts only in the pubspec is not enough
+  - In addition, you need to create a FontManifest.json in the web/assets folder
+  - This will make the used custom fonts available for the webapp

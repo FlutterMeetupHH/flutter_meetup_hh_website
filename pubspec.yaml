@@ -33,3 +33,6 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: fonts/Montserrat/Montserrat-Regular.ttf
+    - family: MaterialIcons
+      fonts:
+        - asset: fonts/MaterialIcons/MaterialIcons-Regular.ttf
