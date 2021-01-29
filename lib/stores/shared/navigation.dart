@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meetup_hh_website/views/about/about.dart';
+import 'package:flutter_meetup_hh_website/views/contributors/contributors.dart';
 import 'package:flutter_meetup_hh_website/views/events/events.dart';
 
 import '../../views/files/files.dart';
@@ -7,12 +8,7 @@ import '../../views/landing/landing.dart';
 
 import 'dart:html' as html;
 
-enum View {
-  landing,
-  events,
-  files,
-  about,
-}
+enum View { landing, events, files, about, contributors }
 
 extension ViewFunctions on View {
   String get url => const {
@@ -20,6 +16,7 @@ extension ViewFunctions on View {
         View.events: '/events',
         View.files: '/files',
         View.about: '/about',
+        View.contributors: '/contributors',
       }[this];
 
   String get text => const {
@@ -27,6 +24,7 @@ extension ViewFunctions on View {
         View.events: 'Events',
         View.files: 'Files',
         View.about: 'About',
+        View.contributors: 'Contributors'
       }[this];
 
   Widget get widget => {
@@ -34,6 +32,7 @@ extension ViewFunctions on View {
         View.events: EventsView(),
         View.files: FilesView(),
         View.about: AboutView(),
+        View.contributors: ContributorsView(),
       }[this];
 }
 

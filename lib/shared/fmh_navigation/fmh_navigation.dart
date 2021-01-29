@@ -14,6 +14,8 @@ class FMHNavigation extends StatelessWidget {
         // SizedBox(height: 12.0),
         // NavigationEntry(view: View.files),
         SizedBox(height: 12.0),
+        NavigationEntry(view: View.contributors),
+        SizedBox(height: 12.0),
         NavigationEntry(view: View.about),
       ],
     );
